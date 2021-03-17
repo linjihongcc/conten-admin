@@ -1,5 +1,16 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div class="home">
+    <div>{{id}}</div>
   </div>
 </template>
+
+<script>
+export default {
+  name: 'About',
+  computed: {
+    id () {
+      return this.$route.params.id
+    }
+  }
+}
+</script>

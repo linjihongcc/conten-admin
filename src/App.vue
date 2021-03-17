@@ -1,32 +1,36 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <h2 class="active">2333</h2>
+    <router-link active-class="active" to="/home">首页</router-link>
+    <router-link :to="'/about/'+id" replace>关于</router-link>
+
+    <router-view />
+    <!-- <button @click="homeclick">首页</button>
+    <button @click="aboutclick">关于</button>-->
   </div>
 </template>
 
-<style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<style >
+.active {
+  color: white;
 }
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+</style>
+<script>
+export default {
+  mame: 'App',
+  data () {
+    return {
+      id: 'l'
+    }
+  },
+  methods: {
+    homeclick () {
+      console.log(this.$router)
+      this.$router.replace('/home')
+    },
+    aboutclick () {
+      this.$router.replace('/about')
     }
   }
 }
-</style>
+</script>
